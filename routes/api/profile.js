@@ -68,10 +68,22 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
           {user: req.user.id},
           {$set: profileFields},
           {new: true}
-        );
+        )
+        .then(profile => res.json(profile));
       } else {
-        // Create a profile
-        
+        // Create a profile    
+        // Check if the handle exists
+        Profile.findOne({handle: profileFields.handle})
+          .then(profile => {
+            if(profile){
+              errors.handle = 'That handle already exists';
+              res.status(400).json(errors);
+            }
+
+            // Save profile
+            new Profile(profileFields).save()
+              .then(profile => res.json(profile));
+          });
       }
     });
 });
