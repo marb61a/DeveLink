@@ -192,4 +192,36 @@ router.post('/experience', passport.authenticate('jwt', {session: false}), (req,
     });
 });
 
+// @route POST /api/profile/education
+// @desc Add education to a user profile
+// @access Private
+router.post('/education', passport.authenticate('jwt', {session: false}), (req, res) => {
+  const { errors, isValid } = validateEducationInput(req.body);
+
+  // Check the validation
+  if(!isValid){
+    // Return errors with 400 status
+    return res.status(400).json(errors);
+  }
+
+  Profile.findOne({user: req.user.id})
+    .then(profile => {
+      const newEdu = {
+        school: req.body.school,
+        degree: req.body.degree,
+        fieldofstudy: req.body.fieldofstudy,
+        from: req.body.from,
+        to: req.body.to,
+        current: req.body.current,
+        description: req.body.description
+      };
+
+      // Add to education array
+      profile.education.unshift(newEdu);
+
+      profile.save().then(profile => res.json(profile));
+
+    });
+});
+
 module.exports = router;
