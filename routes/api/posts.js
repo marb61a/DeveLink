@@ -15,6 +15,29 @@ const validatePostInput = require('../../validation/post');
 router.get('/test', (req, res) => res.json({msg: "Posts file works"}));
 
 // @route GET /routes/api/posts
+// @desc Get posts
+// @access Public
+router.get('/', () => {
+  Post.find()
+    .sort({date: -1})
+    .then(posts => res.json(posts))
+    .catch(err => 
+      res.status(404).json({nopostsfound: 'There were no posts found'})
+    );
+});
+
+// @route GET /routes/api/posts:id
+// @desc Get post by id
+// @access Public
+router.get('/:id', () => {
+  Post.findById(req.params.id)
+    .then(post => res.json(post))
+    .catch(err =>
+       res.status(404).json({nopostfound: 'There was no post found with that id'})
+    );
+});
+
+// @route POST /routes/api/posts
 // @desc Create post
 // @access Private 
 router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
@@ -29,7 +52,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
   const newPost = new Post({
     text: req.body.text,
     name: req.body.name,
-    avatar: req.body.name,
+    avatar: req.body.avatar,
     user: req.user.id
   });
 
