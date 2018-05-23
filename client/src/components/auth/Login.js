@@ -58,6 +58,7 @@ class Login extends Component {
                     onChange={this.onChange}
                   />
                 </div>
+                <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
             </div>
           </div>
