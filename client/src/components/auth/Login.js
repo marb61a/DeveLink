@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 
 class Login extends Component {
+  constructor(){
+    super();
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
   render() {
     return (
-      <div>
-        <h1>Login</h1>
+      <div className="login">
+        <div className="container">
+        
+        </div>
       </div>
     );
   }
