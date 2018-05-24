@@ -19,6 +19,12 @@ class Register extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   };
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.errors){
+      this.setState({errors: nextProps.errors});
+    }
+  }
+
   onChange(e){
     this.setState({[e.target.name]: e.target.value});
   }
@@ -32,6 +38,8 @@ class Register extends Component {
       password: this.state.password,
       password2: this.state.password2
     }
+
+    this.props.registerUser(newUser);
   }
 
   render() {
@@ -129,4 +137,15 @@ class Register extends Component {
   }
 }
 
-export default connect(null, {registerUser})(Register);
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state =>({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(mapStateToProps, {registerUser})(Register);
