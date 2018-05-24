@@ -9,22 +9,33 @@ class Login extends Component {
     super();
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      errors: {}
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.auth.isAuthenticated){
+      this.props.history.push('/dashboard');
+    }
+    
+    if(nextProps.errors){
+      this.setState({errors: nextProps.errors});
+    }
+  }
+
   onSubmit(e){
     e.preventDefault();
 
-    const user = {
+    const userData = {
       email: this.state.email,
       password: this.state.password
     };
 
-    console.log(user);
+    this.props.loginUser(userData);
   }
 
   onChange(e) {
@@ -89,7 +100,7 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  logingUser: PropTypes.func.isRequired,
+  loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 }
