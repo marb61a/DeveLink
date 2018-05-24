@@ -25,7 +25,7 @@ if(localStorage.jwtToken){
 
   // Set the user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
-
+  
 }
 
 class App extends Component {
