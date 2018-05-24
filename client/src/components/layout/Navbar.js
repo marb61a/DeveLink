@@ -22,8 +22,12 @@ class Navbar extends Component {
           >
           </a>
           <img 
-          
-          />
+            className="rounded-circle"
+            src={user.avatar}
+            alt={user.name}
+            style={{ width: '25px', marginRight: '5px' }}
+            title="You must have a Gravatar connected to your email to display an image"
+          />{' '}
           Logout
         </li>
       </ul>
@@ -56,9 +60,7 @@ class Navbar extends Component {
                 </Link>
               </li>
             </ul>
-            <ul className="navbar-nav ml-auto">
-              
-            </ul>
+            {isAuthenticated ? authLinks : guestLinks}
           </div>
         </div>
       </nav>
