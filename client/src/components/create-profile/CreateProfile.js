@@ -42,7 +42,24 @@ class CreateProfile extends Component {
   }
 
   render() {
-    const { errors } = this.state;
+    const { errors, displaySocialInputs } = this.state;
+
+    let socialInputs;
+
+    if(displaySocialInputs){
+      socialInputs = (
+        <div>
+          <InputGroup 
+            placeholder="Twitter Profile URL"
+            name="twitter"
+            icon="fab fa-twitter"
+            value={this.state.twitter}
+            onChange={this.onChange}
+            error={errors.twitter}
+          />
+        </div>
+      );
+    }
 
     // Select options for status
     const options = [
@@ -137,6 +154,23 @@ class CreateProfile extends Component {
                   error={errors.bio}
                   info="Tell us a little about yourself"
                 />
+
+                <div className="mb-3">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        this.setState(prevState => ({
+                          displaySocialInputs: !prevState.displaySocialInputs
+                        }))
+                      }}
+                      className="btn btn-light"
+                    >
+                      Add Social Network Links
+                    </button>
+                    <span className="text-muted">Optional</span>
+                </div>
+                {socialInputs}
+                <input type="submit" value="Submit" className="btn btn-info btn-block mt-4"/>
               </form>
             </div>
           </div>
