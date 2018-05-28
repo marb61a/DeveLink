@@ -6,6 +6,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
+import createProfile from '../../actions/profileActions';
 
 class CreateProfile extends Component {
   constructor(props){
@@ -32,9 +33,30 @@ class CreateProfile extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.errors){
+      this.setState({errors: nextProps.errors});
+    }
+  }
+
   onSubmit(e){
     e.preventDefault();
 
+    const profileData = {
+      handle: this.state.handle,
+      company: this.state.company,
+      website: this.state.website,
+      location: this.state.location,
+      status: this.state.status,
+      skills: this.state.skills,
+      githubusername: this.state.githubusername,
+      bio: this.state.bio,
+      twitter: this.state.twitter,
+      facebook: this.state.facebook,
+      linkedin: this.state.linkedin,
+      youtube: this.state.youtube,
+      instagram: this.state.instagram
+    }
   }
 
   onChange(e){
@@ -222,4 +244,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect (mapStateToProps)(CreateProfile);
+export default connect (mapStateToProps, {createProfile})(CreateProfile);
