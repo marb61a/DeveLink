@@ -54,10 +54,36 @@ class CreateProfile extends Component{
       profile.company = !isEmpty(profile.company) ? profile.company : '';
       profile.website = !isEmpty(profile.website) ? profile.website : '';
       profile.location = !isEmpty(profile.location) ? profile.location : '';
-      profile.githubusername = !isEmpty(profile.githubusername) ? profile.githubusername : '';
+      profile.githubusername = !isEmpty(profile.githubusername) 
+        ? profile.githubusername : '';
       profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
       profile.social = !isEmpty(profile.social) ? profile.social : {};
+      profile.twitter = !isEmpty(profile.social.twitter)
+        ? profile.social.twitter : '';
+      profile.facebook = !isEmpty(profile.social.facebook)
+        ? profile.social.facebook : '';
+      profile.linkedin = !isEmpty(profile.social.linkedin)
+        ? profile.social.linkedin : '';
+      profile.youtube = !isEmpty(profile.social.youtube)
+        ? profile.social.youtube : '';
+      profile.instagram = !isEmpty(profile.social.instagram)
+        ? profile.social.instagram : '';
       
+      // Set the components fields state
+      this.setState({
+        handle: profile.handle,
+        company: profile.company,
+        website: profile.website,
+        location: profile.location,
+        status: profile.status,
+        skills: skillsCSV,
+        githubusername: profile.githubusername,
+        bio: profile.bio,
+        twitter: profile.twitter,
+        facebook: profile.facebook,
+        linkedin: profile.linkedin,
+        youtube: profile.youtube
+      });
     }
   }
 
@@ -139,10 +165,25 @@ class CreateProfile extends Component{
       );
     }
 
+    // Select options for status
+    const options = [
+      { label: '* Select Professional Status', value: 0 },
+      { label: 'Developer', value: 'Developer' },
+      { label: 'Junior Developer', value: 'Junior Developer' },
+      { label: 'Senior Developer', value: 'Senior Developer' },
+      { label: 'Manager', value: 'Manager' },
+      { label: 'Student or Learning', value: 'Student or Learning' },
+      { label: 'Instructor or Teacher', value: 'Instructor or Teacher' },
+      { label: 'Intern', value: 'Intern' },
+      { label: 'Other', value: 'Other' }
+    ];
+
     return(
       <div className="create-profile">
         <div className="container">
-        
+          <div className="row">
+          
+          </div>
         </div>
       </div>
     );
