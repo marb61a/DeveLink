@@ -46,7 +46,7 @@ class AddEducation extends Component {
       description: this.state.description
     }
 
-    this.props.addExperience(eduData, this.props.history);
+    this.props.addEducation(eduData, this.props.history);
   }
 
   onChange(e) {
@@ -130,16 +130,16 @@ class AddEducation extends Component {
                     id="current"
                   />
                   <label htmlFor="current" className="form-check-label">
-                    Current Position
+                    Currently Studying
                   </label>
                 </div>
                 <TextAreaFieldGroup
-                  placeholder="Job Description"
+                  placeholder="Program Description"
                   name="description"
                   value={this.state.description}
                   onChange={this.onChange}
                   error={errors.description}
-                  info="Tell us about the the position"
+                  info="Tell us about the program that you were in"
                 />
                 <input
                   type="submit"
