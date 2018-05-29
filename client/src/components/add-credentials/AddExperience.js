@@ -42,6 +42,46 @@ class AddExperience extends Component {
               <small className="d-block pb-3">
                 * = required fields
               </small>
+              <form onSubmit={this.onSubmit}>
+                <TextFieldGroup 
+                  placeholder="* Company"
+                  name="company"
+                  value={this.state.company}
+                  onChange={this.onChange}
+                  error={errors.company}
+                />
+                <TextFieldGroup 
+                  placeholder="* Job Title"
+                  name="title"
+                  value={this.state.title}
+                  onChange={this.onChange}
+                  error={errors.title}
+                />
+                <TextFieldGroup 
+                  placeholder="Location"
+                  name="location"
+                  value={this.state.location}
+                  onChange={this.onChange}
+                  error={errors.location}
+                />
+                <h6>From Date </h6>
+                <TextFieldGroup
+                  name="from"
+                  type="date"
+                  value={this.state.from}
+                  onChange={this.onChange}
+                  error={errors.from}
+                />
+                <h6>To Date</h6>
+                <TextFieldGroup
+                  name="to"
+                  type="date"
+                  value={this.state.to}
+                  onChange={this.onChange}
+                  error={errors.to}
+                  disabled={this.state.disabled ? 'disabled' : ''}
+                />
+              </form>
             </div>
           </div>
         </div> 
