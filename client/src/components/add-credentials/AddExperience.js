@@ -20,6 +20,26 @@ class AddExperience extends Component {
       errors: {},
       disabled: false
     }
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onCheck = this.onCheck.bind(this);
+  }
+
+  onSubmit(e){
+    e.preventDefault();
+
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onCheck(e){
+    this.state({
+      disabled: !this.state.disabled,
+      current: !this.state.current
+    })
   }
 
   render() {
@@ -80,6 +100,33 @@ class AddExperience extends Component {
                   onChange={this.onChange}
                   error={errors.to}
                   disabled={this.state.disabled ? 'disabled' : ''}
+                />
+                <div className="form-check mb-4">
+                  <input 
+                    type="checkbox"
+                    className="form-check-input"
+                    name="current"
+                    value={this.state.current}
+                    checked={this.state.current}
+                    onChange={this.onCheck}
+                    id="current"
+                  />
+                  <label htmlFor="current" className="form-check-label">
+                    Current Position
+                  </label>
+                </div>
+                <TextAreaFieldGroup
+                  placeholder="Job Description"
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.onChange}
+                  error={errors.description}
+                  info="Tell us about the the position"
+                />
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="btn btn-info btn-block mt-4"
                 />
               </form>
             </div>
