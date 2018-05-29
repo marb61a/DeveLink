@@ -46,6 +46,11 @@ export const addExperience = (expData, history) => dispatch => {
     )
 }
 
+// Add education 
+export const addEducation = () => dispatch => {
+  
+}
+
 // Delete account and profile
 export const deleteAccount = () => dispatch => {
   if(window.confirm('Are you sure? This can NOT be undone!')){

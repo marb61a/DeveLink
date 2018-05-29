@@ -54,7 +54,7 @@ class AddExperience extends Component {
   }
 
   onCheck(e){
-    this.state({
+    this.setState({
       disabled: !this.state.disabled,
       current: !this.state.current
     })

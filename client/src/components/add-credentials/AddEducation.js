@@ -11,9 +11,9 @@ class AddEducation extends Component {
   constructor(props){
     super();
     this.state = {
-      company: '',
-      title: '',
-      location: '',
+      school: '',
+      degree: '',
+      fieldofstudy: '',
       from: '',
       to: '',
       current: false,
@@ -36,17 +36,17 @@ class AddEducation extends Component {
   onSubmit(e){
     e.preventDefault();
 
-    const expData = {
-      company: this.state.company,
-      title: this.state.title,
-      location: this.state.location,
+    const eduData = {
+      school: this.state.school,
+      degree: this.state.degree,
+      fieldofstudy: this.state.location,
       from: this.state.from,
       to: this.state.to,
       current: this.state.current,
       description: this.state.description
     }
 
-    this.props.addExperience(expData, this.props.history);
+    this.props.addExperience(eduData, this.props.history);
   }
 
   onChange(e) {
@@ -54,7 +54,7 @@ class AddEducation extends Component {
   }
 
   onCheck(e){
-    this.state({
+    this.setState({
       disabled: !this.state.disabled,
       current: !this.state.current
     })
@@ -64,7 +64,7 @@ class AddEducation extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="add-experience">
+      <div className="add-education">
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
@@ -72,35 +72,35 @@ class AddEducation extends Component {
                 Go Back
               </Link>
               <h1 className="display-4 text-center">
-                Add Experience
+                Add Education
               </h1>
               <p className="lead text-center"> 
-                Add any positions you have previously held or currently hold
+                Add any school, bootcamp, etc that you have attended
               </p>
               <small className="d-block pb-3">
                 * = required fields
               </small>
               <form onSubmit={this.onSubmit}>
-                <TextFieldGroup 
-                  placeholder="* Company"
-                  name="company"
-                  value={this.state.company}
+                <TextFieldGroup
+                  placeholder="* School"
+                  name="school"
+                  value={this.state.school}
                   onChange={this.onChange}
-                  error={errors.company}
+                  error={errors.school}
                 />
-                <TextFieldGroup 
-                  placeholder="* Job Title"
-                  name="title"
-                  value={this.state.title}
+                <TextFieldGroup
+                  placeholder="* Degree or Certification"
+                  name="degree"
+                  value={this.state.degree}
                   onChange={this.onChange}
-                  error={errors.title}
+                  error={errors.degree}
                 />
-                <TextFieldGroup 
-                  placeholder="Location"
-                  name="location"
-                  value={this.state.location}
+                <TextFieldGroup
+                  placeholder="* Field of Study"
+                  name="fieldofstudy"
+                  value={this.state.fieldofstudy}
                   onChange={this.onChange}
-                  error={errors.location}
+                  error={errors.fieldofstudy}
                 />
                 <h6>From Date </h6>
                 <TextFieldGroup
