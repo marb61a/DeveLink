@@ -146,7 +146,7 @@ class CreateProfile extends Component {
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup 
                   placeholder="* Profile Handle"
-                  name="Handle"
+                  name="handle"
                   value={this.state.handle}
                   onChange={this.onChange}
                   error={errors.handle}
