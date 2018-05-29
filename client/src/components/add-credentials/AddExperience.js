@@ -16,17 +16,48 @@ class AddExperience extends Component {
       from: '',
       to: '',
       current: false,
-      description: ''
+      description: '',
+      errors: {},
+      disabled: false
     }
   }
 
   render() {
+    const { errors } = this.state;
+
     return (
-      <div>
-        
+      <div className="add-experience">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 m-auto">
+              <Link to="/dashboard" className="btn btn-light">
+                Go Back
+              </Link>
+              <h1 className="display-4 text-center">
+                Add Experience
+              </h1>
+              <p className="lead text-center"> 
+                Add any positions you have previously held or currently hold
+              </p>
+              <small className="d-block pb-3">
+                * = required fields
+              </small>
+            </div>
+          </div>
+        </div> 
       </div>
     );
   }
 }
 
-export default AddExperience;
+AddExperience.propTypes = {
+  profile: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+  profile: state.profile,
+  errors: state.errors
+});
+
+export default connect(mapStateToProps)(withRouter(AddExperience));
