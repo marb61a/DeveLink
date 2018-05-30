@@ -30,7 +30,20 @@ class Profile extends Component {
     if(profile === null || loading){
       profileContent = <Spinner />;
     } else {
-
+      profileContent = (
+        <div>
+          <div className="row">
+            <div className="col-md-6">
+              <Link to="/profiles" className="btn btn-light mb-3 float-left">
+                Back To Profiles
+              </Link>
+            </div>
+            <div className="col-md-6" />
+          </div>
+          <ProfileHeader profile={profile}/>
+          <ProfileAbout profile={profile}/>
+        </div>
+      )
     }
 
     return (
@@ -38,7 +51,7 @@ class Profile extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              Profile Content
+              {profileContent}
             </div>
           </div>
         </div>
