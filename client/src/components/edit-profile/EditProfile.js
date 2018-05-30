@@ -11,8 +11,8 @@ import { createProfile, getCurrentProfile } from '../../actions/profileActions';
 import isEmpty from '../../validation/is-empty';
 
 class CreateProfile extends Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       displaySocialInputs: false,
       handle: '',
@@ -82,7 +82,8 @@ class CreateProfile extends Component{
         twitter: profile.twitter,
         facebook: profile.facebook,
         linkedin: profile.linkedin,
-        youtube: profile.youtube
+        youtube: profile.youtube,
+        instagram: profile.instagram
       });
     }
   }
@@ -296,6 +297,6 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
-  withRouter(CreateProfile)
+export default connect(mapStateToProps, { createProfile, 
+  getCurrentProfile })(withRouter(CreateProfile)
 );

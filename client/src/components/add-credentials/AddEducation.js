@@ -9,7 +9,7 @@ import { addEducation } from '../../actions/profileActions';
 
 class AddEducation extends Component {
   constructor(props){
-    super();
+    super(props);
     this.state = {
       school: '',
       degree: '',
