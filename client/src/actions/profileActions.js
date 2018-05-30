@@ -97,7 +97,7 @@ export const deleteEducation = id => dispatch => {
 
 // Get all profiles
 export const getProfiles = () => dispatch => {
-  dispatch.setProfileLoading();
+  dispatch(setProfileLoading());
 
   axios 
     .get('/api/profile/all')
