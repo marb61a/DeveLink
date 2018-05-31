@@ -21,7 +21,7 @@ class ProfileAbout extends Component {
         <div className="col-md-12">
           <div className="card card-body bg-light mb-3">
             <h3 className="text-center text-info">
-              {firstname}'s bio
+              {firstName}'s bio
             </h3>
             <p className="lead">
               {isEmpty(profile.bio) ? (

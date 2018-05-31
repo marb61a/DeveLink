@@ -42,6 +42,13 @@ class Profile extends Component {
           </div>
           <ProfileHeader profile={profile}/>
           <ProfileAbout profile={profile}/>
+          <ProfileCreds
+            education={profile.education}
+            experience={profile.experience}
+          />
+          {profile.githubusername ? (
+            <ProfileGithub username={profile.githubusername} />
+          ) : null}
         </div>
       )
     }
@@ -65,7 +72,7 @@ Profile.propTypes = {
   profile: PropTypes.object.isRequired
 };
 
-mapStateToProps = state => ({
+const mapStateToProps = state => ({
   profile: state.profile
 });
 
