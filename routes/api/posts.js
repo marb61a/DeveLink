@@ -59,7 +59,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     user: req.user.id
   });
 
-  newPost.save().then(res.json(post));
+  newPost.save().then(post => res.json(post));
 });
 
 // @route DELETE /routes/api/posts/:id
