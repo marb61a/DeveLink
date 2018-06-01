@@ -20,7 +20,7 @@ class AddEducation extends Component {
       description: '',
       errors: {},
       disabled: false
-    }
+    };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -39,12 +39,12 @@ class AddEducation extends Component {
     const eduData = {
       school: this.state.school,
       degree: this.state.degree,
-      fieldofstudy: this.state.location,
+      fieldofstudy: this.state.fieldofstudy,
       from: this.state.from,
       to: this.state.to,
       current: this.state.current,
       description: this.state.description
-    }
+    };
 
     this.props.addEducation(eduData, this.props.history);
   }
@@ -57,7 +57,7 @@ class AddEducation extends Component {
     this.setState({
       disabled: !this.state.disabled,
       current: !this.state.current
-    })
+    });
   }
 
   render() {
@@ -159,7 +159,7 @@ AddEducation.propTypes = {
   addEducation: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
-}
+};
 
 const mapStateToProps = state => ({
   profile: state.profile,
