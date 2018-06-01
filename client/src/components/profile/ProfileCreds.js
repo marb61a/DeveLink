@@ -16,18 +16,18 @@ class ProfileCreds extends Component {
             <Moment format="YYYY/MM/DD">{exp.to}</Moment>
           )}
         </p>
-        <p><strong>Position</strong>{exp.title}</p>
+        <p><strong>Position : </strong>{exp.title}</p>
         <p>
           {exp.location === '' ? null : (
             <span> 
-              <strong>Location: </strong> {exp.location}
+              <strong>Location : </strong> {exp.location}
             </span>
           )}
         </p>
         <p>
           {exp.description === '' ? null : (
             <span> 
-              <strong>escription: </strong> {exp.description}
+              <strong>Description : </strong> {exp.description}
             </span>
           )}
         </p>
@@ -46,15 +46,15 @@ class ProfileCreds extends Component {
           )}
         </p>
         <p>
-          <strong>Degree:</strong> {edu.degree}
+          <strong>Degree : </strong> {edu.degree}
         </p>
         <p>
-          <strong>Field Of Study:</strong> {edu.fieldofstudy}
+          <strong>Field Of Study : </strong> {edu.fieldofstudy}
         </p>
         <p>
           {edu.description === '' ? null : (
             <span>
-              <strong>Description: </strong> {edu.description}
+              <strong>Description : </strong> {edu.description}
             </span>
           )}
         </p>
