@@ -18,6 +18,6 @@ const ProfileActions = () => {
       </Link>
     </div>
   );
-}
+};
 
 export default ProfileActions;

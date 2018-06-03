@@ -11,7 +11,7 @@ class PostForm extends Component {
     this.state = {
       text: '',
       errors: {}
-    }
+    };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);

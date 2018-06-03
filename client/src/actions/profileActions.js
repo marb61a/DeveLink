@@ -12,13 +12,13 @@ export const getCurrentProfile = () => dispatch => {
         payload: res.data
       })
     )
-    .catch(
+    .catch(err =>
       dispatch({
         type: GET_PROFILE,
         payload: {}
       })
-    )
-}
+    );
+};
 
 // Get the profile by handle
 export const getProfileByHandle = handle => dispatch => {
@@ -32,13 +32,13 @@ export const getProfileByHandle = handle => dispatch => {
         payload: res.data
       })
     )
-    .catch(err=> 
+    .catch(err => 
       dispatch({
         type: GET_PROFILE,
         payload: null
       })
-    )
-}
+    );
+};
 
 // Create a profile
 export const createProfile = (profileData, history) => dispatch => {
@@ -50,8 +50,8 @@ export const createProfile = (profileData, history) => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
-}
+    );
+};
 
 // Add experience
 export const addExperience = (expData, history) => dispatch => {
@@ -63,8 +63,8 @@ export const addExperience = (expData, history) => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
-}
+    );
+};
 
 // Add education 
 export const addEducation = (eduData, history) => dispatch => {
@@ -76,8 +76,8 @@ export const addEducation = (eduData, history) => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
-}
+    );
+};
 
 // Delete Experience
 export const deleteExperience = id => dispatch => {
@@ -94,8 +94,8 @@ export const deleteExperience = id => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
-}
+    );
+};
 
 // Delete Education
 export const deleteEducation = id => dispatch => {
@@ -112,8 +112,8 @@ export const deleteEducation = id => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
-}
+    );
+};
 
 // Get all profiles
 export const getProfiles = () => dispatch => {
@@ -132,8 +132,8 @@ export const getProfiles = () => dispatch => {
         type: GET_PROFILES,
         payload: null
       })
-    )
-}
+    );
+};
 
 // Delete account and profile
 export const deleteAccount = () => dispatch => {
@@ -152,19 +152,19 @@ export const deleteAccount = () => dispatch => {
           payload: err.response.data
         })
       )
-  }
-}
+  };
+};
 
 // Profile Loading
 export const setProfileLoading = () => {
   return {
     type: PROFILE_LOADING
-  }
-}
+  };
+};
 
 // Clear profile
 export const clearCurrentProfile =() => {
   return {
     type: CLEAR_CURRENT_PROFILE
-  }
-}
+  };
+};

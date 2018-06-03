@@ -28,7 +28,7 @@ class CreateProfile extends Component {
       youtube: '',
       instagram: '',
       errors: {}
-    }
+    };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -57,7 +57,7 @@ class CreateProfile extends Component {
       linkedin: this.state.linkedin,
       youtube: this.state.youtube,
       instagram: this.state.instagram
-    }
+    };
 
     this.props.createProfile(profileData, this.props.history);
   }
@@ -129,7 +129,7 @@ class CreateProfile extends Component {
       { label: 'Instructor or Teacher', value: 'Instructor or Teacher' },
       { label: 'Intern', value: 'Intern' },
       { label: 'Other', value: 'Other' }
-    ]
+    ];
 
     return (
       <div className="create-profile">

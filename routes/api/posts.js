@@ -20,7 +20,7 @@ router.get('/test', (req, res) => res.json({msg: "Posts file works"}));
 // @route GET /routes/api/posts
 // @desc Get posts
 // @access Public
-router.get('/', () => {
+router.get('/', (req, res) => {
   Post.find()
     .sort({date: -1})
     .then(posts => res.json(posts))

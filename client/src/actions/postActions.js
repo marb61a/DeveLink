@@ -25,8 +25,8 @@ export const addPost = postData => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
-}
+    );
+};
 
 // Get posts
 export const getPosts = () => dispatch => {
@@ -45,8 +45,8 @@ export const getPosts = () => dispatch => {
         type: GET_POSTS,
         payload: null
       })
-    )
-}
+    );
+};
 
 // Get post
 export const getPost = id => dispatch => {
@@ -65,8 +65,8 @@ export const getPost = id => dispatch => {
         type: GET_POST,
         payload: null
       })
-    )
-}
+    );
+};
 
 // Delete Posts
 export const deletePost = id => dispatch => {
@@ -83,8 +83,8 @@ export const deletePost = id => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
-}
+    );
+};
 
 // Add Likes
 export const addLike = id => dispatch => {
@@ -96,8 +96,8 @@ export const addLike = id => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
-}
+    );
+};
 
 // Remove Like
 export const removeLike = id => dispatch => {
@@ -109,8 +109,8 @@ export const removeLike = id => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
-}
+    );
+};
 
 // Add a comment
 export const addComment = (postId, commentData) => dispatch => {
@@ -129,8 +129,8 @@ export const addComment = (postId, commentData) => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
-}
+    );
+};
 
 // Delete Comment
 export const deleteComment = (postId, commentId) => dispatch => {
@@ -147,15 +147,15 @@ export const deleteComment = (postId, commentId) => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
-}
+    );
+};
 
 // Set the loading state
 export const setPostLoading = () => {
   return {
     type: POST_LOADING
-  }
-}
+  };
+};
 
 // Clear errors
 export const clearErrors = () => {
