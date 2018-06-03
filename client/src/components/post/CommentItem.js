@@ -49,10 +49,10 @@ CommentItem.propTypes = {
   comment: PropTypes.object.isRequired,
   postId: PropTypes.string.isRequired,
   auth: PropTypes.object.isRequired
-}
+};
 
 const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, {deleteComment})(CommentItem);
+export default connect(mapStateToProps, { deleteComment })(CommentItem);

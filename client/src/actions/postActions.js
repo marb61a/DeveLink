@@ -49,7 +49,7 @@ export const getPosts = () => dispatch => {
 };
 
 // Get post
-export const getPost = id => dispatch => {
+export const getPost = (id) => dispatch => {
   dispatch(setPostLoading());
 
   axios 
@@ -71,11 +71,11 @@ export const getPost = id => dispatch => {
 // Delete Posts
 export const deletePost = id => dispatch => {
   axios 
-    .post(`/api/posts/${id}`)
+    .delete(`/api/posts/${id}`)
     .then(res => 
       dispatch({
         type: DELETE_POST,
-        payload: res.id
+        payload: id
       })
     )
     .catch(err => 
