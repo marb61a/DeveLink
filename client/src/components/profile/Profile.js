@@ -19,7 +19,7 @@ class Profile extends Component {
 
   componentWillReceiveProps(nextProps){
     if(nextProps.profile.profile === null && this.props.profile.loading){
-      this.props.history.push('/');
+      this.props.history.push('/not-found');
     }
   }
 
@@ -40,8 +40,8 @@ class Profile extends Component {
             </div>
             <div className="col-md-6" />
           </div>
-          <ProfileHeader profile={profile}/>
-          <ProfileAbout profile={profile}/>
+          <ProfileHeader profile={profile} />
+          <ProfileAbout profile={profile} />
           <ProfileCreds
             education={profile.education}
             experience={profile.experience}
@@ -50,7 +50,7 @@ class Profile extends Component {
             <ProfileGithub username={profile.githubusername} />
           ) : null}
         </div>
-      )
+      );
     }
 
     return (
@@ -76,4 +76,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, {getProfileByHandle})(Profile);
+export default connect(mapStateToProps, { getProfileByHandle })(Profile);

@@ -35,9 +35,9 @@ class Dashboard extends Component {
               Welcome 
               <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
             </p>
+            <ProfileActions />
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
-            <ProfileActions />
             <div style={{ marginBottom: '60px' }} />
             <button 
               onClick={this.onDeleteClick.bind(this)}
@@ -83,11 +83,11 @@ Dashboard.propTypes = {
   deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
-}
+};
 
 const mapStateToProps = state => ({
   profile: state.profile,
   auth: state.auth
-})
+});
 
 export default connect(mapStateToProps, {getCurrentProfile, deleteAccount})(Dashboard);

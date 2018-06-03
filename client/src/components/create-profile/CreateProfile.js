@@ -20,7 +20,7 @@ class CreateProfile extends Component {
       location: '',
       status: '',
       skills: '',
-      githubnusername: '',
+      githubusername: '',
       bio: '',
       twitter: '',
       facebook: '',
