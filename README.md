@@ -5,8 +5,11 @@ React
 Redux
 Express
 Node
+Postman
 MongoDB (mLab)
+Concurrently
 
-App deployed at
+
+App currently deployed at
 
 https://developerlink.herokuapp.com/login
